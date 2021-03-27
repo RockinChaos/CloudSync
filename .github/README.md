@@ -1,6 +1,4 @@
-![](Image soon TM)
-
-<p align="center">
+!<p align="center">
  See <a href="https://github.com/RockinChaos/ItemJoin-Bungee/wiki">ItemJoin-Bungee's Wiki</a> for the full detailed documentation on the plugin.<br>
 </p>
 
