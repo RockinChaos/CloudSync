@@ -10,7 +10,8 @@
 ### Description
 -----
 ```
-
+This plugin currently exists to allow the ItemJoin plugin to passthrough BungeeCord commands.
+If you are trying to use for example, `bungee: friends` on your custom item commands, you will need this plugin installed onto your BungeeCord server.
 ```
 -----
 ### Installation
