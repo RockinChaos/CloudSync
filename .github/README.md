@@ -34,4 +34,4 @@ Required Libraries when compiling (there are no required dependencies, only soft
 * BungeeCord (Latest Official)
 ```
 
-![](https://i.imgur.com/vFllc29.png)![](https://i.imgur.com/vFllc29.png)[<img src="https://i.imgur.com/WR5dVKN.png">](https://discord.gg/D5FnJ7C)[<img src="https://i.imgur.com/MncBujJ.png">](http://ci.craftationgaming.com/)
+![](https://i.imgur.com/vFllc29.png)![](https://i.imgur.com/vFllc29.png)[<img src="https://i.imgur.com/WR5dVKN.png">](https://discord.gg/D5FnJ7C)[<img src="https://i.imgur.com/LJsmwSd.png">](http://ci.craftationgaming.com/)
