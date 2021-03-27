@@ -16,9 +16,10 @@ you will need this plugin installed onto your BungeeCord server.
 ### Installation
 ```
 1) Once the ItemJoin-Bungee.jar is downloaded, the jar must be placed into your bungeecord's plugins folder.
-2) Double-check the server's plugins folder for any duplicate ItemJoin-Bungee.jar files, such as ItemJoin-Bungee(1).jar.
-3) Delete any found duplicate instances or there will be conflicting errors in the console window.
-4) Once this is completed, the server must be restarted to register and enable the plugin. The plugin
+2) Double-check the server's plugins folder for any duplicate ItemJoin-Bungee.jar files, 
+3) such as ItemJoin-Bungee(1).jar.
+4) Delete any found duplicate instances or there will be conflicting errors in the console window.
+5) Once this is completed, the server must be restarted to register and enable the plugin. The plugin
    will then attempt to find your server version and generate a configuration based on the found version.
 5) From this point, it is up to you to configure the plugin or join the discord for additional help.
 ```
