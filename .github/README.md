@@ -11,7 +11,8 @@
 -----
 ```
 This plugin currently exists to allow the ItemJoin plugin to passthrough BungeeCord commands.
-If you are trying to use for example, `bungee: friends` on your custom item commands, you will need this plugin installed onto your BungeeCord server.
+If you are trying to use for example, bungee: friends on your custom item commands, 
+you will need this plugin installed onto your BungeeCord server.
 ```
 -----
 ### Installation
@@ -33,4 +34,4 @@ Required Libraries when compiling (there are no required dependencies, only soft
 * BungeeCord (Latest Official)
 ```
 
-![](https://i.imgur.com/vFllc29.png)![](https://i.imgur.com/vFllc29.png)[<img src="https://i.imgur.com/WR5dVKN.png">](https://discord.gg/D5FnJ7C)[<img src="https://i.imgur.com/2YBE4mr.png">](http://ci.craftationgaming.com/)
+![](https://i.imgur.com/vFllc29.png)![](https://i.imgur.com/vFllc29.png)[<img src="https://i.imgur.com/WR5dVKN.png">](https://discord.gg/D5FnJ7C)[<img src="https://i.imgur.com/MncBujJ.png">](http://ci.craftationgaming.com/)
