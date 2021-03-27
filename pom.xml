@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<groupId>me.RockinChaos.itemjoin</groupId>
 	<artifactId>ItemJoin</artifactId>
-	<name>ItemJoin-Bungee</name>
+	<name>ItemJoin</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<url>https://www.spigotmc.org/resources/itemjoin.12661/</url>
 	
