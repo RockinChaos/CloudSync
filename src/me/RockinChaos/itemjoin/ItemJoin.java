@@ -41,8 +41,9 @@ public class ItemJoin extends Plugin {
     */
     @Override
     public void onEnable() {
-    	this.getProxy().registerChannel(PLUGIN_CHANNEL);
-    	this.getProxy().getPluginManager().registerListener(this, new PluginMessage());
+    	new MetricsAPI(this, 10829);
+    	this.getProxy().registerChannel(this.PLUGIN_CHANNEL);
+    	this.getProxy().getPluginManager().registerListener(this, new Messages());
     }
     
    /**
