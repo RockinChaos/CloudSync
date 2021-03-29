@@ -17,6 +17,7 @@
  */
 package me.RockinChaos.itemjoin;
 
+import me.RockinChaos.itemjoin.handlers.UpdateHandler;
 import me.RockinChaos.itemjoin.listeners.Messages;
 import me.RockinChaos.itemjoin.utils.api.MetricsAPI;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -42,6 +43,7 @@ public class ItemJoin extends Plugin {
     @Override
     public void onEnable() {
     	new MetricsAPI(this, 10829);
+    	UpdateHandler.getUpdater(true);
     	this.getProxy().registerChannel(this.PLUGIN_CHANNEL);
     	this.getProxy().getPluginManager().registerListener(this, new Messages());
     }
