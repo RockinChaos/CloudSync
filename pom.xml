@@ -169,5 +169,5 @@
 		<github.global.server>github</github.global.server>
 	</properties>
 	<description>A spigot-bungee handshake.</description>
-	<version>1.0.0-RELEASE</version>
+	<version>1.0.1-SNAPSHOT</version>
 </project>
