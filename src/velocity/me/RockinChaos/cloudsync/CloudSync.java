@@ -57,7 +57,7 @@ public class CloudSync {
         PLUGIN_CHANNEL = new LegacyChannelIdentifier("plugin:cloudsync");
     	SnapAPI.setLogger(java.util.logging.Logger.getLogger(this.getClass().getName()));
     	SnapAPI.setName("CloudSync");
-    	SnapAPI.setVersion("$(PROJECT_VERSION)-b(BUILD_NUMBER)");
+    	SnapAPI.setVersion("(PROJECT_VERSION)-b(BUILD_NUMBER)");
     	SnapAPI.setServerCount(proxy.getAllServers().size());
     	SnapAPI.setOnlineCount(proxy.getPlayerCount());
     	SnapAPI.setOnline(proxy.getConfiguration().isOnlineMode());
