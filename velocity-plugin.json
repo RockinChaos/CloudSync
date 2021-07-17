@@ -1,0 +1,9 @@
+{
+  "id": "cloudsync",
+  "name": "CloudSync",
+  "version": "${project.version}-b${env.BUILD_NUMBER}",
+  "url": "https://www.spigotmc.org/resources/cloudsync.93382/",
+  "authors": [ "RockinChaos" ],
+  "dependencies": [],
+  "main": "velocity.me.RockinChaos.cloudsync.CloudSync"
+}
