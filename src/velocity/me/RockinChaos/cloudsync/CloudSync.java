@@ -32,7 +32,7 @@ import velocity.me.RockinChaos.cloudsync.listeners.Messages;
 import velocity.me.RockinChaos.cloudsync.utils.api.MetricsAPI;
 
 @Plugin(id = "cloudsync", name = "CloudSync", authors = "RockinChaos", description = "A spigot-bungee handshake.", 
-		url = "https://www.spigotmc.org/resources/cloudsync.93382/", version = "${project.version}-b${env.BUILD_NUMBER}")
+		url = "https://www.spigotmc.org/resources/cloudsync.93382/", version = "(PROJECT_VERSION)-b(BUILD_NUMBER)")
 public class CloudSync {
     private static ProxyServer proxy;
     private final MetricsAPI.Factory metricsFactory;
@@ -57,7 +57,7 @@ public class CloudSync {
         PLUGIN_CHANNEL = new LegacyChannelIdentifier("plugin:cloudsync");
     	SnapAPI.setLogger(java.util.logging.Logger.getLogger(this.getClass().getName()));
     	SnapAPI.setName("CloudSync");
-    	SnapAPI.setVersion("${project.version}-b${env.BUILD_NUMBER}");
+    	SnapAPI.setVersion("$(PROJECT_VERSION)-b(BUILD_NUMBER)");
     	SnapAPI.setServerCount(proxy.getAllServers().size());
     	SnapAPI.setOnlineCount(proxy.getPlayerCount());
     	SnapAPI.setOnline(proxy.getConfiguration().isOnlineMode());
