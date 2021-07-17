@@ -1,6 +1,6 @@
-main: me.RockinChaos.itemjoin.ItemJoin
+main: bungee.me.RockinChaos.cloudsync.CloudSync
 version: ${project.version}-b${env.BUILD_NUMBER}
-name: ItemJoin
+name: CloudSync
 author: RockinChaos
 description: A spigot-bungee handshake.
-website: https://www.spigotmc.org/resources/itemjoin.12661/
+website: https://www.spigotmc.org/resources/cloudsync.93382/

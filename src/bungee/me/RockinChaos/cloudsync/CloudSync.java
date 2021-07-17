@@ -1,5 +1,5 @@
 /*
- * ItemJoin-Bungee
+ * CloudSync
  * Copyright (C) CraftationGaming <https://www.craftationgaming.com/>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,17 +15,18 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package me.RockinChaos.itemjoin;
+package bungee.me.RockinChaos.cloudsync;
 
-import me.RockinChaos.itemjoin.handlers.UpdateHandler;
-import me.RockinChaos.itemjoin.listeners.Messages;
-import me.RockinChaos.itemjoin.utils.api.MetricsAPI;
+import bungee.me.RockinChaos.cloudsync.handlers.UpdateHandler;
+import bungee.me.RockinChaos.cloudsync.utils.api.MetricsAPI;
+import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
 import net.md_5.bungee.api.plugin.Plugin;
+import bungee.me.RockinChaos.cloudsync.listeners.Messages;
 
-public class ItemJoin extends Plugin {
+public class CloudSync extends Plugin {
 	
-	private static ItemJoin instance;
-	public final String PLUGIN_CHANNEL = "plugin:itemjoin";
+	private static CloudSync instance;
+	public final String PLUGIN_CHANNEL = "plugin:cloudsync";
 	
    /**
     * Called when the plugin is loaded.
@@ -40,8 +41,15 @@ public class ItemJoin extends Plugin {
     * Called when the plugin is enabled.
     * 
     */
-    @Override
+	@Override
+	@SuppressWarnings("deprecation")
     public void onEnable() {
+    	SnapAPI.setLogger(this.getLogger());
+    	SnapAPI.setName(this.getDescription().getName());
+    	SnapAPI.setVersion(this.getDescription().getVersion());
+    	SnapAPI.setServerCount(this.getProxy().getServers().size());
+    	SnapAPI.setOnlineCount(this.getProxy().getOnlineCount());
+    	SnapAPI.setOnline(this.getProxy().getConfig().isOnlineMode());
     	new MetricsAPI(this, 10829);
     	UpdateHandler.getUpdater(true);
     	this.getProxy().registerChannel(this.PLUGIN_CHANNEL);
@@ -58,12 +66,12 @@ public class ItemJoin extends Plugin {
     }
     
    /**
-    * Gets the static instance of the main class for ItemJoin. 
+    * Gets the static instance of the main class for cloudsync. 
     * Notice: This class is not an actual API class, this is the main class that extends Plugin. 
     *
-    * @return ItemJoin instance.
+    * @return CloudSync instance.
     */  	
-  	public static ItemJoin getInstance() {
+  	public static CloudSync getInstance() {
   		return instance;
   	}
 }

@@ -1,5 +1,5 @@
 /*
- * ItemJoin-Bungee
+ * CloudSync
  * Copyright (C) CraftationGaming <https://www.craftationgaming.com/>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,11 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package me.RockinChaos.itemjoin.handlers;
-
-import me.RockinChaos.itemjoin.ItemJoin;
-import me.RockinChaos.itemjoin.utils.ServerUtils;
-import me.RockinChaos.itemjoin.utils.StringUtils;
+package bungee.me.RockinChaos.cloudsync.handlers;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -29,15 +25,18 @@ import java.net.URLConnection;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import bungee.me.RockinChaos.cloudsync.utils.ServerUtils;
+import bungee.me.RockinChaos.cloudsync.utils.StringUtils;
+import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
+
 public class UpdateHandler {
-	private final String destination = "itemjoin-bungee";
+	private final String destination = "cloudsync";
     private final String HOST = "https://api.github.com/repos/RockinChaos/" + this.destination + "/releases/latest";
-    private String versionExact = ItemJoin.getInstance().getDescription().getVersion();
+    private String versionExact = SnapAPI.getVersion();
     private String localeVersion = this.versionExact.split("-")[0];
     private String latestVersion;
     private boolean betaVersion = this.versionExact.contains("-SNAPSHOT") || this.versionExact.contains("-BETA") || this.versionExact.contains("-ALPHA");
     private boolean devVersion = this.localeVersion.equals("${project.version}");
-    private boolean updatesAllowed = true;
     
     private static UpdateHandler updater;
         
@@ -57,7 +56,7 @@ public class UpdateHandler {
     * @param onStart - If it is checking for updates on start.
     */
     public void checkUpdates() {
-    	if (this.updateNeeded() && this.updatesAllowed) {
+    	if (this.updateNeeded()) {
     		if (this.betaVersion) {
     			ServerUtils.logInfo("Your current version: v" + this.localeVersion + "-SNAPSHOT");
     			ServerUtils.logInfo("This SNAPSHOT is outdated and a release version is now available.");
@@ -77,31 +76,29 @@ public class UpdateHandler {
     * @return If an update is needed.
     */
     private boolean updateNeeded() {
-    	if (this.updatesAllowed) {
-    		try {
-    			URLConnection connection = new URL(this.HOST + "?_=" + System.currentTimeMillis()).openConnection();
-    			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-    			String JsonString = StringUtils.toString(reader); 
-			    JSONObject objectReader = (JSONObject) JSONValue.parseWithException(JsonString);
-			    String gitVersion = objectReader.get("tag_name").toString();
-    			reader.close();
-    			if (gitVersion.length() <= 7) {
-    				this.latestVersion = gitVersion.replaceAll("[a-z]", "").replace("-SNAPSHOT", "").replace("-BETA", "").replace("-ALPHA", "").replace("-RELEASE", "");
-    				String[] latestSplit = this.latestVersion.split("\\.");
-    				String[] localeSplit = this.localeVersion.split("\\.");
-    				if (this.devVersion) {
-    					return false;
-    				} else if ((Integer.parseInt(latestSplit[0]) > Integer.parseInt(localeSplit[0]) || Integer.parseInt(latestSplit[1]) > Integer.parseInt(localeSplit[1]) || Integer.parseInt(latestSplit[2]) > Integer.parseInt(localeSplit[2]))
-    						|| (this.betaVersion && (Integer.parseInt(latestSplit[0]) == Integer.parseInt(localeSplit[0]) && Integer.parseInt(latestSplit[1]) == Integer.parseInt(localeSplit[1]) && Integer.parseInt(latestSplit[2]) == Integer.parseInt(localeSplit[2])))) {
-    					return true;
-    				}
+    	try {
+    		URLConnection connection = new URL(this.HOST + "?_=" + System.currentTimeMillis()).openConnection();
+    		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+    	    String JsonString = StringUtils.toString(reader); 
+			JSONObject objectReader = (JSONObject) JSONValue.parseWithException(JsonString);
+			String gitVersion = objectReader.get("tag_name").toString();
+    		reader.close();
+    		if (gitVersion.length() <= 7) {
+    			this.latestVersion = gitVersion.replaceAll("[a-z]", "").replace("-SNAPSHOT", "").replace("-BETA", "").replace("-ALPHA", "").replace("-RELEASE", "");
+    			String[] latestSplit = this.latestVersion.split("\\.");
+    			String[] localeSplit = this.localeVersion.split("\\.");
+    			if (this.devVersion) {
+    				return false;
+    			} else if ((Integer.parseInt(latestSplit[0]) > Integer.parseInt(localeSplit[0]) || Integer.parseInt(latestSplit[1]) > Integer.parseInt(localeSplit[1]) || Integer.parseInt(latestSplit[2]) > Integer.parseInt(localeSplit[2]))
+    					|| (this.betaVersion && (Integer.parseInt(latestSplit[0]) == Integer.parseInt(localeSplit[0]) && Integer.parseInt(latestSplit[1]) == Integer.parseInt(localeSplit[1]) && Integer.parseInt(latestSplit[2]) == Integer.parseInt(localeSplit[2])))) {
+    				return true;
     			}
-    		} catch (FileNotFoundException e1) {	
-    		} catch (Exception e2) {
-    			e2.printStackTrace();
-    			ServerUtils.logInfo("Failed to check for updates, connection could not be made.");
-    			return false;
     		}
+    	} catch (FileNotFoundException e1) {	
+    	} catch (Exception e2) {
+    		e2.printStackTrace();
+    		ServerUtils.logInfo("Failed to check for updates, connection could not be made.");
+    		return false;
     	}
     	return false;
     }

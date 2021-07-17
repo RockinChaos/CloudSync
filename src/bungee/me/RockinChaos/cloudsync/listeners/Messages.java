@@ -1,5 +1,5 @@
 /*
- * ItemJoin-Bungee
+ * CloudSync
  * Copyright (C) CraftationGaming <https://www.craftationgaming.com/>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package me.RockinChaos.itemjoin.listeners;
+package bungee.me.RockinChaos.cloudsync.listeners;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -23,13 +23,13 @@ import java.io.DataInputStream;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import me.RockinChaos.itemjoin.ItemJoin;
-import me.RockinChaos.itemjoin.utils.ServerUtils;
+import bungee.me.RockinChaos.cloudsync.utils.ServerUtils;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
+import bungee.me.RockinChaos.cloudsync.CloudSync;
 
 public class Messages implements Listener {
 
@@ -40,13 +40,13 @@ public class Messages implements Listener {
     */
 	@EventHandler()
     public void onPluginMessage(final PluginMessageEvent event) {
-        if (event.getTag().equalsIgnoreCase(ItemJoin.getInstance().PLUGIN_CHANNEL)) {
+        if (event.getTag().equalsIgnoreCase(CloudSync.getInstance().PLUGIN_CHANNEL)) {
             DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
-                final ProxiedPlayer player = ItemJoin.getInstance().getProxy().getPlayer(stream.readUTF());
+                final ProxiedPlayer player = CloudSync.getInstance().getProxy().getPlayer(stream.readUTF());
                 final String command = stream.readUTF();
-                this.sendConfirmation(ItemJoin.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
-                ItemJoin.getInstance().getProxy().getPluginManager().dispatchCommand(player, command);
+                this.sendConfirmation(CloudSync.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
+                CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(player, command);
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
     }
@@ -59,6 +59,6 @@ public class Messages implements Listener {
 	private void sendConfirmation(final ServerInfo server) {
 	    ByteArrayDataOutput out = ByteStreams.newDataOutput();
 	    out.writeUTF("Confirmation");
-	    server.sendData(ItemJoin.getInstance().PLUGIN_CHANNEL, out.toByteArray());
+	    server.sendData(CloudSync.getInstance().PLUGIN_CHANNEL, out.toByteArray());
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * ItemJoin-Bungee
+ * CloudSync
  * Copyright (C) CraftationGaming <https://www.craftationgaming.com/>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package me.RockinChaos.itemjoin.utils.api;
+package bungee.me.RockinChaos.cloudsync.utils.api;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -94,13 +94,13 @@ public class MetricsAPI {
     // A list with all custom charts
     private final List<CustomChart> charts = new ArrayList<>();
 
-    /**
-     * Class constructor.
-     *
-     * @param plugin The plugin which stats should be submitted.
-     * @param pluginId The id of the plugin.
-     *                 It can be found at <a href="https://bstats.org/what-is-my-plugin-id">What is my plugin id?</a>
-     */
+   /**
+    * Class constructor.
+    *
+    * @param plugin The plugin which stats should be submitted.
+    * @param pluginId The id of the plugin.
+    *                 It can be found at <a href="https://bstats.org/what-is-my-plugin-id">What is my plugin id?</a>
+    */
     public MetricsAPI(Plugin plugin, int pluginId) {
         this.plugin = plugin;
         this.pluginId = pluginId;
@@ -139,20 +139,20 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Checks if bStats is enabled.
-     *
-     * @return Whether bStats is enabled or not.
-     */
+   /**
+    * Checks if bStats is enabled.
+    *
+    * @return Whether bStats is enabled or not.
+    */
     public boolean isEnabled() {
         return enabled;
     }
 
-    /**
-     * Adds a custom chart.
-     *
-     * @param chart The chart to add.
-     */
+   /**
+    * Adds a custom chart.
+    *
+    * @param chart The chart to add.
+    */
     public void addCustomChart(CustomChart chart) {
         if (chart == null) {
             plugin.getLogger().log(Level.WARNING, "Chart cannot be null");
@@ -160,22 +160,22 @@ public class MetricsAPI {
         charts.add(chart);
     }
 
-    /**
-     * Links an other metrics class with this class.
-     * This method is called using Reflection.
-     *
-     * @param metrics An object of the metrics class to link.
-     */
+   /**
+    * Links an other metrics class with this class.
+    * This method is called using Reflection.
+    *
+    * @param metrics An object of the metrics class to link.
+    */
     public static void linkMetrics(Object metrics) {
         knownMetricsInstances.add(metrics);
     }
 
-    /**
-     * Gets the plugin specific data.
-     * This method is called using Reflection.
-     *
-     * @return The plugin specific data.
-     */
+   /**
+    * Gets the plugin specific data.
+    * This method is called using Reflection.
+    *
+    * @return The plugin specific data.
+    */
     public JsonObject getPluginData() {
         JsonObject data = new JsonObject();
 
@@ -200,6 +200,9 @@ public class MetricsAPI {
         return data;
     }
 
+   /**
+    * Submits the data in intervals.
+    */
     private void startSubmitting() {
         // Many servers tend to restart at a fixed time at xx:00 which causes an uneven distribution of requests on the
         // bStats backend. To circumvent this problem, we introduce some randomness into the initial and second delay.
@@ -212,11 +215,11 @@ public class MetricsAPI {
                 plugin, this::submitData, initialDelay + secondDelay, 1000 * 60 * 30, TimeUnit.MILLISECONDS);
     }
 
-    /**
-     * Gets the server specific data.
-     *
-     * @return The server specific data.
-     */
+   /**
+    * Gets the server specific data.
+    *
+    * @return The server specific data.
+    */
     @SuppressWarnings("deprecation")
 	private JsonObject getServerData() {
         // Minecraft specific data
@@ -250,9 +253,9 @@ public class MetricsAPI {
         return data;
     }
 
-    /**
-     * Collects the data and sends it afterwards.
-     */
+   /**
+    * Collects the data and sends it afterwards.
+    */
     private void submitData() {
         final JsonObject data = getServerData();
 
@@ -280,11 +283,11 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Loads the bStats configuration.
-     *
-     * @throws IOException If something did not work :(
-     */
+   /**
+    * Loads the bStats configuration.
+    *
+    * @throws IOException If something did not work :(
+    */
     private void loadConfig() throws IOException {
         File bStatsFolder = new File(plugin.getDataFolder().getParentFile(), "bStats");
         bStatsFolder.mkdirs();
@@ -312,11 +315,11 @@ public class MetricsAPI {
         logResponseStatusText = configuration.getBoolean("logResponseStatusText", false);
     }
 
-    /**
-     * Gets the first bStat Metrics class.
-     *
-     * @return The first bStats metrics class.
-     */
+   /**
+    * Gets the first bStat Metrics class.
+    *
+    * @return The first bStats metrics class.
+    */
     private Class<?> getFirstBStatsClass() {
         File bStatsFolder = new File(plugin.getDataFolder().getParentFile(), "bStats");
         bStatsFolder.mkdirs();
@@ -340,13 +343,13 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Reads the first line of the file.
-     *
-     * @param file The file to read. Cannot be null.
-     * @return The first line of the file or {@code null} if the file does not exist or is empty.
-     * @throws IOException If something did not work :(
-     */
+   /**
+    * Reads the first line of the file.
+    *
+    * @param file The file to read. Cannot be null.
+    * @return The first line of the file or {@code null} if the file does not exist or is empty.
+    * @throws IOException If something did not work :(
+    */
     private String readFile(File file) throws IOException {
         if (!file.exists()) {
             return null;
@@ -356,13 +359,13 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Writes a String to a file. It also adds a note for the user,
-     *
-     * @param file The file to write to. Cannot be null.
-     * @param lines The lines to write.
-     * @throws IOException If something did not work :(
-     */
+   /**
+    * Writes a String to a file. It also adds a note for the user,
+    *
+    * @param file The file to write to. Cannot be null.
+    * @param lines The lines to write.
+    * @throws IOException If something did not work :(
+    */
     private void writeFile(File file, String... lines) throws IOException {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             for (String line : lines) {
@@ -372,13 +375,13 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Sends the data to the bStats server.
-     *
-     * @param plugin Any plugin. It's just used to get a logger instance.
-     * @param data The data to send.
-     * @throws Exception If the request failed.
-     */
+   /**
+    * Sends the data to the bStats server.
+    *
+    * @param plugin Any plugin. It's just used to get a logger instance.
+    * @param data The data to send.
+    * @throws Exception If the request failed.
+    */
     private static void sendData(Plugin plugin, JsonObject data) throws Exception {
         if (data == null) {
             throw new IllegalArgumentException("Data cannot be null");
@@ -421,13 +424,13 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Gzips the given String.
-     *
-     * @param str The string to gzip.
-     * @return The gzipped String.
-     * @throws IOException If the compression failed.
-     */
+   /**
+    * Gzips the given String.
+    *
+    * @param str The string to gzip.
+    * @return The gzipped String.
+    * @throws IOException If the compression failed.
+    */
     private static byte[] compress(final String str) throws IOException {
         if (str == null) {
             return null;
@@ -440,19 +443,19 @@ public class MetricsAPI {
     }
 
 
-    /**
-     * Represents a custom chart.
-     */
+   /**
+    * Represents a custom chart.
+    */
     public static abstract class CustomChart {
 
         // The id of the chart
         private final String chartId;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        */
         CustomChart(String chartId) {
             if (chartId == null || chartId.isEmpty()) {
                 throw new IllegalArgumentException("ChartId cannot be null or empty!");
@@ -483,19 +486,19 @@ public class MetricsAPI {
 
     }
 
-    /**
-     * Represents a custom simple pie.
-     */
+   /**
+    * Represents a custom simple pie.
+    */
     public static class SimplePie extends CustomChart {
 
         private final Callable<String> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public SimplePie(String chartId, Callable<String> callable) {
             super(chartId);
             this.callable = callable;
@@ -514,19 +517,19 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Represents a custom advanced pie.
-     */
+   /**
+    * Represents a custom advanced pie.
+    */
     public static class AdvancedPie extends CustomChart {
 
         private final Callable<Map<String, Integer>> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public AdvancedPie(String chartId, Callable<Map<String, Integer>> callable) {
             super(chartId);
             this.callable = callable;
@@ -558,19 +561,19 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Represents a custom drilldown pie.
-     */
+   /**
+    * Represents a custom drilldown pie.
+    */
     public static class DrilldownPie extends CustomChart {
 
         private final Callable<Map<String, Map<String, Integer>>> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public DrilldownPie(String chartId, Callable<Map<String, Map<String, Integer>>> callable) {
             super(chartId);
             this.callable = callable;
@@ -607,19 +610,19 @@ public class MetricsAPI {
         }
     }
 
-    /**
-     * Represents a custom single line chart.
-     */
+   /**
+    * Represents a custom single line chart.
+    */
     public static class SingleLineChart extends CustomChart {
 
         private final Callable<Integer> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public SingleLineChart(String chartId, Callable<Integer> callable) {
             super(chartId);
             this.callable = callable;
@@ -639,19 +642,19 @@ public class MetricsAPI {
 
     }
 
-    /**
-     * Represents a custom multi line chart.
-     */
+   /**
+    * Represents a custom multi line chart.
+    */
     public static class MultiLineChart extends CustomChart {
 
         private final Callable<Map<String, Integer>> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public MultiLineChart(String chartId, Callable<Map<String, Integer>> callable) {
             super(chartId);
             this.callable = callable;
@@ -684,24 +687,29 @@ public class MetricsAPI {
 
     }
 
-    /**
-     * Represents a custom simple bar chart.
-     */
+   /**
+    * Represents a custom simple bar chart.
+    */
     public static class SimpleBarChart extends CustomChart {
 
         private final Callable<Map<String, Integer>> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public SimpleBarChart(String chartId, Callable<Map<String, Integer>> callable) {
             super(chartId);
             this.callable = callable;
         }
 
+       /**
+        * Gets the Chart Data.
+        *
+        * @throws Exception.
+        */
         @Override
         protected JsonObject getChartData() throws Exception {
             JsonObject data = new JsonObject();
@@ -722,24 +730,29 @@ public class MetricsAPI {
 
     }
 
-    /**
-     * Represents a custom advanced bar chart.
-     */
+   /**
+    * Represents a custom advanced bar chart.
+    */
     public static class AdvancedBarChart extends CustomChart {
 
         private final Callable<Map<String, int[]>> callable;
 
-        /**
-         * Class constructor.
-         *
-         * @param chartId The id of the chart.
-         * @param callable The callable which is used to request the chart data.
-         */
+       /**
+        * Class constructor.
+        *
+        * @param chartId The id of the chart.
+        * @param callable The callable which is used to request the chart data.
+        */
         public AdvancedBarChart(String chartId, Callable<Map<String, int[]>> callable) {
             super(chartId);
             this.callable = callable;
         }
 
+       /**
+        * Gets the Chart Data.
+        *
+        * @throws Exception.
+        */
         @Override
         protected JsonObject getChartData() throws Exception {
             JsonObject data = new JsonObject();

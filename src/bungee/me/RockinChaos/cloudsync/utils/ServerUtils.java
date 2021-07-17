@@ -1,5 +1,5 @@
 /*
- * ItemJoin-Bungee
+ * CloudSync
  * Copyright (C) CraftationGaming <https://www.craftationgaming.com/>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package me.RockinChaos.itemjoin.utils;
+package bungee.me.RockinChaos.cloudsync.utils;
 
-import me.RockinChaos.itemjoin.ItemJoin;
+import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
 
 public class ServerUtils {
 	
@@ -27,10 +27,10 @@ public class ServerUtils {
     * @param message - The unformatted message text to be sent.
     */
 	public static void logInfo(String message) {
-		String prefix = "[ItemJoin] ";
+		String prefix = "[CloudSync] ";
 		message = prefix + message;
 		if (message.equalsIgnoreCase("") || message.isEmpty()) { message = ""; }
-		ItemJoin.getInstance().getProxy().getLogger().info(message);
+		SnapAPI.getLogger().info(message);
 	}
 	
    /**
@@ -39,10 +39,10 @@ public class ServerUtils {
     * @param message - The unformatted message text to be sent.
     */
 	public static void logWarn(String message) {
-		String prefix = "[ItemJoin_WARN] ";
+		String prefix = "[CloudSync_WARN] ";
 		message = prefix + message;
 		if (message.equalsIgnoreCase("") || message.isEmpty()) { message = ""; }
-		ItemJoin.getInstance().getProxy().getLogger().warning(message);
+		SnapAPI.getLogger().warning(message);
 	}
 	
    /**
@@ -51,10 +51,10 @@ public class ServerUtils {
     * @param message - The unformatted message text to be sent.
     */
 	public static void logDev(String message) {
-		String prefix = "[ItemJoin_DEVELOPER] ";
+		String prefix = "[CloudSync_DEVELOPER] ";
 		message = prefix + message;
 		if (message.equalsIgnoreCase("") || message.isEmpty()) { message = ""; }
-		ItemJoin.getInstance().getProxy().getLogger().warning(message);
+		SnapAPI.getLogger().warning(message);
 	}
 	
    /**
@@ -63,9 +63,9 @@ public class ServerUtils {
     * @param message - The unformatted message text to be sent.
     */
 	public static void logSevere(String message) {
-		String prefix = "[ItemJoin_ERROR] ";
+		String prefix = "[CloudSync_ERROR] ";
 		if (message.equalsIgnoreCase("") || message.isEmpty()) { message = ""; }
-		ItemJoin.getInstance().getProxy().getLogger().severe(prefix + message);
+		SnapAPI.getLogger().severe(prefix + message);
 	}
 	
    /**
