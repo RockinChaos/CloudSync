@@ -9,6 +9,8 @@
 	<artifactId>CloudSync</artifactId>
 	<name>CloudSync</name>
 	<url>https://www.spigotmc.org/resources/cloudsync.93382/</url>
+	<description>A spigot-bungee handshake.</description>
+	<version>1.0.1-RELEASE</version>
 	
 	<build>
 		<sourceDirectory>${project.basedir}</sourceDirectory>
@@ -168,6 +170,4 @@
 		<java.version>1.8</java.version>
 		<github.global.server>github</github.global.server>
 	</properties>
-	<description>A spigot-bungee handshake.</description>
-	<version>1.0.1-SNAPSHOT</version>
 </project>
