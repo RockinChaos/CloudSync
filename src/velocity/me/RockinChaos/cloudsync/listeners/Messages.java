@@ -43,8 +43,8 @@ public class Messages {
                 final Player player = CloudSync.getProxy().getPlayer(stream.readUTF()).get();
                 final String command = stream.readUTF();
                 ServerConnection connection = (ServerConnection) event.getSource();
-                this.sendConfirmation(connection);
                 CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(player, command);
+                this.sendConfirmation(connection);
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
     }

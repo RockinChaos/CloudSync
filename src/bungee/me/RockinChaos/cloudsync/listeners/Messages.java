@@ -45,8 +45,8 @@ public class Messages implements Listener {
             try {
                 final ProxiedPlayer player = CloudSync.getInstance().getProxy().getPlayer(stream.readUTF());
                 final String command = stream.readUTF();
-                this.sendConfirmation(CloudSync.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
                 CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(player, command);
+                this.sendConfirmation(CloudSync.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
     }
