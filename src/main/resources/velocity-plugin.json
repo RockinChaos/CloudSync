@@ -5,5 +5,5 @@
   "url": "https://www.spigotmc.org/resources/cloudsync.93382/",
   "authors": [ "RockinChaos" ],
   "dependencies": [],
-  "main": "velocity.me.RockinChaos.cloudsync.CloudSync"
+  "main": "src.main.java.me.RockinChaos.cloudsync.velocity.CloudSync"
 }
