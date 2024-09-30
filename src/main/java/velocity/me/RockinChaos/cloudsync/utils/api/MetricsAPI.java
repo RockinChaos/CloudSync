@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package src.main.java.me.RockinChaos.cloudsync.velocity.utils.api;
+package velocity.me.RockinChaos.cloudsync.utils.api;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.plugin.PluginContainer;
@@ -438,7 +438,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -486,7 +486,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -524,7 +524,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -572,7 +572,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -621,7 +621,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     public JsonObjectBuilder.JsonObject getRequestJsonObject(
         BiConsumer<String, Throwable> errorLogger, boolean logErrors) {
@@ -646,7 +646,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     protected abstract JsonObjectBuilder.JsonObject getChartData() throws Exception;
   }
@@ -672,7 +672,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -706,7 +706,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     protected JsonObjectBuilder.JsonObject getChartData() throws Exception {
@@ -737,7 +737,7 @@ public class MetricsAPI {
    /**
     * Gets the Chart Data.
     *
-    * @throws Exception
+    * @throws Exception.
     */
     @Override
     public JsonObjectBuilder.JsonObject getChartData() throws Exception {

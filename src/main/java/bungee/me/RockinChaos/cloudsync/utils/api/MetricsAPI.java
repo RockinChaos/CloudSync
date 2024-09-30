@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package src.main.java.me.RockinChaos.cloudsync.bungee.utils.api;
+package bungee.me.RockinChaos.cloudsync.utils.api;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -708,7 +708,7 @@ public class MetricsAPI {
        /**
         * Gets the Chart Data.
         *
-        * @throws Exception
+        * @throws Exception.
         */
         @Override
         protected JsonObject getChartData() throws Exception {
@@ -751,7 +751,7 @@ public class MetricsAPI {
        /**
         * Gets the Chart Data.
         *
-        * @throws Exception
+        * @throws Exception.
         */
         @Override
         protected JsonObject getChartData() throws Exception {

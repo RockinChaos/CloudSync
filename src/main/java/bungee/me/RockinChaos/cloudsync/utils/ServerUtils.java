@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package src.main.java.me.RockinChaos.cloudsync.bungee.utils;
+package bungee.me.RockinChaos.cloudsync.utils;
 
-import src.main.java.me.RockinChaos.cloudsync.bungee.utils.api.SnapAPI;
+import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
 
 public class ServerUtils {
 	
