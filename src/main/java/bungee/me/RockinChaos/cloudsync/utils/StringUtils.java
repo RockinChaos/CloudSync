@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package src.main.java.me.RockinChaos.cloudsync.bungee.utils;
+package bungee.me.RockinChaos.cloudsync.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

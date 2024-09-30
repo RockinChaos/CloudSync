@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package src.main.java.me.RockinChaos.cloudsync.bungee.handlers;
+package bungee.me.RockinChaos.cloudsync.handlers;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,9 +25,9 @@ import java.net.URLConnection;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import src.main.java.me.RockinChaos.cloudsync.bungee.utils.ServerUtils;
-import src.main.java.me.RockinChaos.cloudsync.bungee.utils.StringUtils;
-import src.main.java.me.RockinChaos.cloudsync.bungee.utils.api.SnapAPI;
+import bungee.me.RockinChaos.cloudsync.utils.ServerUtils;
+import bungee.me.RockinChaos.cloudsync.utils.StringUtils;
+import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
 
 public class UpdateHandler {
 	private final String destination = "cloudsync";
