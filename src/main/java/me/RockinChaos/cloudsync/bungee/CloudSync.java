@@ -15,14 +15,14 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package bungee.me.RockinChaos.cloudsync;
+package src.main.java.me.RockinChaos.cloudsync.bungee;
 
-import bungee.me.RockinChaos.cloudsync.handlers.UpdateHandler;
-import bungee.me.RockinChaos.cloudsync.utils.api.MetricsAPI;
-import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
+import src.main.java.me.RockinChaos.cloudsync.bungee.handlers.UpdateHandler;
+import src.main.java.me.RockinChaos.cloudsync.bungee.utils.api.MetricsAPI;
+import src.main.java.me.RockinChaos.cloudsync.bungee.utils.api.SnapAPI;
 import net.md_5.bungee.api.plugin.Plugin;
-import bungee.me.RockinChaos.cloudsync.listeners.Chat;
-import bungee.me.RockinChaos.cloudsync.listeners.Messages;
+import src.main.java.me.RockinChaos.cloudsync.bungee.listeners.Chat;
+import src.main.java.me.RockinChaos.cloudsync.bungee.listeners.Messages;
 
 public class CloudSync extends Plugin {
 	

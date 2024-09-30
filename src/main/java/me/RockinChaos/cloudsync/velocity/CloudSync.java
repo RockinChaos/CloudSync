@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package velocity.me.RockinChaos.cloudsync;
+package src.main.java.me.RockinChaos.cloudsync.velocity;
 
 import org.slf4j.Logger;
 
@@ -26,10 +26,10 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.messages.LegacyChannelIdentifier;
 
-import bungee.me.RockinChaos.cloudsync.handlers.UpdateHandler;
-import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
-import velocity.me.RockinChaos.cloudsync.listeners.Messages;
-import velocity.me.RockinChaos.cloudsync.utils.api.MetricsAPI;
+import src.main.java.me.RockinChaos.cloudsync.bungee.handlers.UpdateHandler;
+import src.main.java.me.RockinChaos.cloudsync.bungee.utils.api.SnapAPI;
+import src.main.java.me.RockinChaos.cloudsync.velocity.listeners.Messages;
+import src.main.java.me.RockinChaos.cloudsync.velocity.utils.api.MetricsAPI;
 
 @Plugin(id = "cloudsync", name = "CloudSync", authors = "RockinChaos", description = "A spigot-bungee handshake.", 
 		url = "https://www.spigotmc.org/resources/cloudsync.93382/", version = "(PROJECT_VERSION)-b(BUILD_NUMBER)")

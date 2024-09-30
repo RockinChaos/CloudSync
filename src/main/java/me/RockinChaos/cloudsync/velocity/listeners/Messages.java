@@ -15,42 +15,38 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package bungee.me.RockinChaos.cloudsync.listeners;
+package src.main.java.me.RockinChaos.cloudsync.velocity.listeners;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import com.velocitypowered.api.event.connection.PluginMessageEvent;
+import com.velocitypowered.api.event.Subscribe;
+import com.velocitypowered.api.proxy.ServerConnection;
+import src.main.java.me.RockinChaos.cloudsync.bungee.utils.ServerUtils;
+import src.main.java.me.RockinChaos.cloudsync.velocity.CloudSync;
 
-import bungee.me.RockinChaos.cloudsync.utils.ServerUtils;
-import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.PluginMessageEvent;
-import net.md_5.bungee.api.plugin.Listener;
-import net.md_5.bungee.event.EventHandler;
-import bungee.me.RockinChaos.cloudsync.CloudSync;
-
-public class Messages implements Listener {
+public class Messages {
 
    /**
     * Called a message is sent to the specified CHANNEL.
     * 
     * @param event - PluginMessageEvent
     */
-	@EventHandler()
+    @Subscribe
     public void onPluginMessage(final PluginMessageEvent event) {
-        if (event.getTag().equalsIgnoreCase(CloudSync.getInstance().PLUGIN_CHANNEL)) {
+        if (event.getIdentifier().getId().equalsIgnoreCase(CloudSync.getPluginChannel().getId())) {
             DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
                 final String type = stream.readUTF();
                 final String command = stream.readUTF();
                 if (type.equals("c")) {
-                    CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(CloudSync.getInstance().getProxy().getConsole(), command);
+                    CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(CloudSync.getProxy().getConsoleCommandSource(), command);
                 } else {
-                    CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(CloudSync.getInstance().getProxy().getPlayer(type), command);
+                    CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(CloudSync.getProxy().getPlayer(type).get(), command);
                 }
-                this.sendConfirmation(CloudSync.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
+                this.sendConfirmation(CloudSync.getProxy().getPlayer(type).get().getCurrentServer().get());
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
     }
@@ -58,11 +54,11 @@ public class Messages implements Listener {
    /**
     * Sends a confirmation data packet.
     * 
-    * @param server - The Server to send the confirmation.
+    * @param connection - The Server to send the confirmation.
     */
-	private void sendConfirmation(final ServerInfo server) {
+	private void sendConfirmation(final ServerConnection connection) {
 	    ByteArrayDataOutput out = ByteStreams.newDataOutput();
 	    out.writeUTF("Confirmation");
-	    server.sendData(CloudSync.getInstance().PLUGIN_CHANNEL, out.toByteArray());
+	    connection.sendPluginMessage(CloudSync.getPluginChannel(), out.toByteArray());
 	}
 }
