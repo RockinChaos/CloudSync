@@ -1,5 +1,5 @@
 main: bungee.me.RockinChaos.cloudsync.CloudSync
-version: ${project.version}-b${env.BUILD_NUMBER}
+version: ${project.version}-b${build.version}
 name: CloudSync
 author: RockinChaos
 description: A spigot-bungee handshake.

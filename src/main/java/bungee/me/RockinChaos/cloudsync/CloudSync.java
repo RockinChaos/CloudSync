@@ -21,6 +21,7 @@ import bungee.me.RockinChaos.cloudsync.handlers.UpdateHandler;
 import bungee.me.RockinChaos.cloudsync.utils.api.MetricsAPI;
 import bungee.me.RockinChaos.cloudsync.utils.api.SnapAPI;
 import net.md_5.bungee.api.plugin.Plugin;
+import bungee.me.RockinChaos.cloudsync.listeners.Chat;
 import bungee.me.RockinChaos.cloudsync.listeners.Messages;
 
 public class CloudSync extends Plugin {
@@ -54,6 +55,7 @@ public class CloudSync extends Plugin {
     	UpdateHandler.getUpdater(true);
     	this.getProxy().registerChannel(this.PLUGIN_CHANNEL);
     	this.getProxy().getPluginManager().registerListener(this, new Messages());
+    	this.getProxy().getPluginManager().registerListener(this, new Chat());
     }
     
    /**

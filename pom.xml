@@ -10,32 +10,40 @@
 	<name>CloudSync</name>
 	<url>https://www.spigotmc.org/resources/cloudsync.93382/</url>
 	<description>A spigot-bungee handshake.</description>
-	<version>1.0.1-RELEASE</version>
-	
+	<version>1.0.2-SNAPSHOT</version>
+
+	<properties>
+		<bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
+		<velocity.version>3.3.0-SNAPSHOT</velocity.version>
+
+		<build.version>${env.BUILD_NUMBER}</build.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<github.global.server>github</github.global.server>
+	</properties>
+
 	<build>
 		<sourceDirectory>${project.basedir}</sourceDirectory>
 		
 		<resources>
-		
+
 			<resource>
 				<targetPath>.</targetPath>
 				<filtering>true</filtering>
 				<directory>.</directory>
 				<includes>
-					<include>*.yml</include>
-					<include>*.json</include>
 					<include>LICENSE</include>
 				</includes>
 			</resource>
-			
+
 			<resource>
-				<targetPath>./files</targetPath>
+				<targetPath>.</targetPath>
 				<filtering>true</filtering>
-				<directory>./files</directory>
+				<directory>./src/main/resources</directory>
 				<includes>
 					<include>**/*.yml</include>
 					<include>**/*.json</include>
-					<include>**/*.jpg</include>
 				</includes>
 			</resource>
 			
@@ -58,7 +66,7 @@
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.2.1</version>
 				<configuration>
-					<finalName>CloudSync-${project.version}-b${env.BUILD_NUMBER}</finalName>
+					<finalName>CloudSync-${project.version}-b${build.version}</finalName>
 				</configuration>
 				<executions>
 					<execution>
@@ -110,14 +118,14 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.18-R0.1-SNAPSHOT</version>
+            <version>${bungee.version}</version>
             <scope>provided</scope>
         </dependency>
 		<!--Velocity API-->
         <dependency>
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-api</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
+            <version>${velocity.version}</version>
             <scope>provided</scope>
         </dependency>
 		<!--bStats API-->
@@ -135,39 +143,30 @@
             <scope>compile</scope>
         </dependency>
 	</dependencies>
-	
-	<scm>
-		<url>https://github.com/RockinChaos/CloudSync</url>
-		<connection>scm:git:ssh://git@github.com/RockinChaos/CloudSync</connection>
-		<developerConnection>scm:git:ssh://git@github.com/RockinChaos/CloudSync.git</developerConnection>
-	</scm>
-	
+
 	<organization>
 		<name>CloudSync</name>
 		<url>https://github.com/RockinChaos/CloudSync</url>
 	</organization>
-	
+
 	<issueManagement>
 		<url>https://github.com/RockinChaos/CloudSync/issues</url>
 		<system>Github</system>
 	</issueManagement>
-	
+
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>https://ci.craftationgaming.com/job/CloudSync/</url>
+		<url>https://ci-dev.craftationgaming.com/job/CloudSync</url>
 	</ciManagement>
-	
+
 	<distributionManagement>
 		<repository>
-			<id>internal.repo</id>
-			<name>staging-repository</name>
-			<url>file://${env.JENKINS_HOME}/maven-public</url>
+			<id>CraftationGaming</id>
+			<url>https://repo.craftationgaming.com/chaos</url>
 		</repository>
+		<snapshotRepository>
+			<id>CraftationGaming</id>
+			<url>https://repo.craftationgaming.com/chaos</url>
+		</snapshotRepository>
 	</distributionManagement>
-	
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<github.global.server>github</github.global.server>
-	</properties>
 </project>
