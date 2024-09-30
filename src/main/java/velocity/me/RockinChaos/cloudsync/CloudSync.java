@@ -62,7 +62,7 @@ public class CloudSync {
     	SnapAPI.setOnlineCount(proxy.getPlayerCount());
     	SnapAPI.setOnline(proxy.getConfiguration().isOnlineMode());
     	UpdateHandler.getUpdater(true);
-        metricsFactory.make(this, 10829);
+        metricsFactory.make(this, 23502);
         proxy.getChannelRegistrar().register(PLUGIN_CHANNEL);
         proxy.getEventManager().register(this, new Messages());
     }

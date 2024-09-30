@@ -51,7 +51,7 @@ public class CloudSync extends Plugin {
     	SnapAPI.setServerCount(this.getProxy().getServers().size());
     	SnapAPI.setOnlineCount(this.getProxy().getOnlineCount());
     	SnapAPI.setOnline(this.getProxy().getConfig().isOnlineMode());
-    	new MetricsAPI(this, 10829);
+    	new MetricsAPI(this, 23502);
     	UpdateHandler.getUpdater(true);
     	this.getProxy().registerChannel(this.PLUGIN_CHANNEL);
     	this.getProxy().getPluginManager().registerListener(this, new Messages());
