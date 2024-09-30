@@ -40,10 +40,14 @@ public class Messages {
         if (event.getIdentifier().getId().equalsIgnoreCase(CloudSync.getPluginChannel().getId())) {
             DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
-                final Player player = CloudSync.getProxy().getPlayer(stream.readUTF()).get();
+                final String type = stream.readUTF();
                 final String command = stream.readUTF();
+                if (type.equals("c")) {
+                    CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(CloudSync.getProxy().getConsoleCommandSource(), command);
+                } else {
+                    CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(CloudSync.getProxy().getPlayer(type).get(), command);
+                }
                 ServerConnection connection = (ServerConnection) event.getSource();
-                CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(player, command);
                 this.sendConfirmation(connection);
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }

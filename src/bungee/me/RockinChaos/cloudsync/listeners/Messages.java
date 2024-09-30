@@ -43,9 +43,13 @@ public class Messages implements Listener {
         if (event.getTag().equalsIgnoreCase(CloudSync.getInstance().PLUGIN_CHANNEL)) {
             DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
-                final ProxiedPlayer player = CloudSync.getInstance().getProxy().getPlayer(stream.readUTF());
+                final String type = stream.readUTF();
                 final String command = stream.readUTF();
-                CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(player, command);
+                if (type.equals("c")) {
+                    CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(CloudSync.getInstance().getProxy().getConsole(), command);
+                } else {
+                    CloudSync.getInstance().getProxy().getPluginManager().dispatchCommand(CloudSync.getInstance().getProxy().getPlayer(type), command);
+                }
                 this.sendConfirmation(CloudSync.getInstance().getProxy().getPlayer(event.getReceiver().toString()).getServer().getInfo());
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
