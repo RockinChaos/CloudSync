@@ -46,8 +46,7 @@ public class Messages {
                 } else {
                     CloudSync.getProxy().getCommandManager().executeImmediatelyAsync(CloudSync.getProxy().getPlayer(type).get(), command);
                 }
-                ServerConnection connection = (ServerConnection) event.getSource();
-                this.sendConfirmation(connection);
+                this.sendConfirmation(CloudSync.getProxy().getPlayer(type).get().getCurrentServer().get());
             } catch (Exception e) { ServerUtils.sendSevereTrace(e); }
         }
     }
