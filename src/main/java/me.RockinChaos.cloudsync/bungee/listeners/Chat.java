@@ -1,4 +1,4 @@
-package bungee.me.RockinChaos.cloudsync.listeners;
+package me.RockinChaos.cloudsync.bungee.listeners;
 
 import net.md_5.bungee.api.event.ChatEvent;
 import net.md_5.bungee.api.plugin.Listener;

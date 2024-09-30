@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package velocity.me.RockinChaos.cloudsync.utils.api;
+package me.RockinChaos.cloudsync.velocity.api;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.plugin.PluginContainer;

@@ -1,11 +1,11 @@
-package bungee.me.RockinChaos.cloudsync.handlers;
+package me.RockinChaos.cloudsync.bungee.handlers;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 
-import bungee.me.RockinChaos.cloudsync.CloudSync;
+import me.RockinChaos.cloudsync.bungee.CloudSync;
 
 public class ConfigHandler {
 	

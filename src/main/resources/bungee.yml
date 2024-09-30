@@ -1,4 +1,4 @@
-main: bungee.me.RockinChaos.cloudsync.CloudSync
+main: me.RockinChaos.cloudsync.bungee.CloudSync
 version: ${project.version}-b${build.version}
 name: CloudSync
 author: RockinChaos
