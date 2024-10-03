@@ -150,6 +150,13 @@
             <version>1.1.1</version>
             <scope>compile</scope>
         </dependency>
+		<!--Yaml API-->
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>2.3</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<organization>

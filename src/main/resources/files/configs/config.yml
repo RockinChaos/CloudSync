@@ -1,0 +1,12 @@
+# --{ =-=-=-=-=-=-=-=-=-=-=-=-= CloudSync's Configuration, by RockinChaos =-=-=-=-=-=-=-=-=-=-=-=-=-= }--
+# See the tutorial page for a more in-depth explanation; https://github.com/RockinChaos/CloudSync/wiki
+# Join the discord for easy plugin support; https://discord.gg/D5FnJ7C
+
+# Modifying the Version will cause this file to break and regenerate.
+config-Version: 0
+
+# These are typically general maintenance settings that do not affect functionality.
+General:
+  CheckforUpdates: true
+  Metrics-Logging: true
+  Debugging: false
