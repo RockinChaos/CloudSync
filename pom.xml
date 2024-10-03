@@ -1,192 +1,199 @@
 <!-- CloudSync build file -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	
-	<packaging>jar</packaging>
-	<groupId>me.RockinChaos.cloudsync</groupId>
-	<artifactId>CloudSync</artifactId>
-	<name>CloudSync</name>
-	<url>https://www.spigotmc.org/resources/cloudsync.93382/</url>
-	<description>A spigot-bungee handshake.</description>
-	<version>1.0.2-SNAPSHOT</version>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<properties>
-		<bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
-		<velocity.version>3.3.0-SNAPSHOT</velocity.version>
-		<spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
+    <packaging>jar</packaging>
+    <groupId>me.RockinChaos.cloudsync</groupId>
+    <artifactId>CloudSync</artifactId>
+    <name>CloudSync</name>
+    <url>https://www.spigotmc.org/resources/cloudsync.93382/</url>
+    <description>A spigot-bungee handshake.</description>
+    <version>1.0.2-SNAPSHOT</version>
 
-		<build.version>${env.BUILD_NUMBER}</build.version>
+    <properties>
+        <bungee.api.version>1.21-R0.1-SNAPSHOT</bungee.api.version>
+        <bungee.proxy.version>1.4.7-SNAPSHOT</bungee.proxy.version>
+        <velocity.version>3.3.0-SNAPSHOT</velocity.version>
+        <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<github.global.server>github</github.global.server>
-	</properties>
+        <build.version>${env.BUILD_NUMBER}</build.version>
 
-	<build>
-		<sourceDirectory>${project.basedir}</sourceDirectory>
-		
-		<resources>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <github.global.server>github</github.global.server>
+    </properties>
 
-			<resource>
-				<targetPath>.</targetPath>
-				<filtering>true</filtering>
-				<directory>.</directory>
-				<includes>
-					<include>LICENSE</include>
-				</includes>
-			</resource>
+    <build>
+        <sourceDirectory>${project.basedir}</sourceDirectory>
 
-			<resource>
-				<targetPath>.</targetPath>
-				<filtering>true</filtering>
-				<directory>./src/main/resources</directory>
-				<includes>
-					<include>**/*.yml</include>
-					<include>**/*.json</include>
-				</includes>
-			</resource>
-			
-		</resources>
-		
-		<plugins>
-		
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<encoding>Cp1252</encoding>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.2.1</version>
-				<configuration>
-					<finalName>CloudSync-${project.version}-b${build.version}</finalName>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<filters>
-								<filter>
-									<artifact>*</artifact>
-									<excludes>
-										<exclude>META-INF/*.SF</exclude>
-										<exclude>META-INF/*.RSA</exclude>
-										<exclude>META-INF/*.INF</exclude>
-										<exclude>META-INF/*.MF</exclude>
-									</excludes>
-								</filter>
-							</filters>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
-		</plugins>
-		
-	</build>
-	
-	<repositories>
-		<!--Spigot Repository-->
-		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-		<!--Bungee Repository-->
-		<repository>
-			<id>bungeecord-repo</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</repository>
-		<!--Velocity Repository-->
+        <resources>
+
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>.</directory>
+                <includes>
+                    <include>LICENSE</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>./src/main/resources</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <encoding>Cp1252</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <finalName>CloudSync-${project.version}-b${build.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>META-INF/*.INF</exclude>
+                                        <exclude>META-INF/*.MF</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <repositories>
+        <!--Spigot / Bungee Repository-->
         <repository>
-            <id>velocity</id>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>velocity-repo</id>
             <url>https://repo.velocitypowered.com/snapshots/</url>
         </repository>
-		<!--bStats Repository-->
-		<repository>
-			<id>CodeMC</id>
-			<url>https://repo.codemc.org/repository/maven-public</url>
-		</repository>
-	</repositories>
-	
-	<dependencies>
-		<!--Bungee API-->
+        <!--bStats Repository-->
+        <repository>
+            <id>CodeMC</id>
+            <url>https://repo.codemc.org/repository/maven-public</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!--Bungee API-->
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>${bungee.version}</version>
+            <version>${bungee.api.version}</version>
             <scope>provided</scope>
         </dependency>
-		<!--Velocity API-->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-proxy</artifactId>
+            <version>${bungee.proxy.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Velocity API-->
         <dependency>
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-api</artifactId>
             <version>${velocity.version}</version>
             <scope>provided</scope>
         </dependency>
-		<!--Spigot API-->
-		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot-api</artifactId>
-			<version>${spigot.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!--bStats API-->
+        <dependency>
+            <groupId>com.velocitypowered</groupId>
+            <artifactId>velocity-proxy</artifactId>
+            <version>${velocity.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Spigot API-->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>${spigot.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--bStats API-->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bungeecord</artifactId>
             <version>2.2.1</version>
             <scope>provided</scope>
         </dependency>
-		<!--JSON API-->
+        <!--JSON API-->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
             <scope>compile</scope>
         </dependency>
-		<!--Yaml API-->
-		<dependency>
-			<groupId>org.yaml</groupId>
-			<artifactId>snakeyaml</artifactId>
-			<version>2.3</version>
-			<scope>compile</scope>
-		</dependency>
-	</dependencies>
+        <!--Yaml API-->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.3</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
-	<organization>
-		<name>CloudSync</name>
-		<url>https://github.com/RockinChaos/CloudSync</url>
-	</organization>
+    <organization>
+        <name>CloudSync</name>
+        <url>https://github.com/RockinChaos/CloudSync</url>
+    </organization>
 
-	<issueManagement>
-		<url>https://github.com/RockinChaos/CloudSync/issues</url>
-		<system>Github</system>
-	</issueManagement>
+    <issueManagement>
+        <url>https://github.com/RockinChaos/CloudSync/issues</url>
+        <system>Github</system>
+    </issueManagement>
 
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>https://ci-dev.craftationgaming.com/job/CloudSync</url>
-	</ciManagement>
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>https://ci-dev.craftationgaming.com/job/CloudSync</url>
+    </ciManagement>
 
-	<distributionManagement>
-		<repository>
-			<id>CraftationGaming</id>
-			<url>https://repo.craftationgaming.com/chaos</url>
-		</repository>
-		<snapshotRepository>
-			<id>CraftationGaming</id>
-			<url>https://repo.craftationgaming.com/chaos</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>CraftationGaming</id>
+            <url>https://repo.craftationgaming.com/chaos</url>
+        </repository>
+        <snapshotRepository>
+            <id>CraftationGaming</id>
+            <url>https://repo.craftationgaming.com/chaos</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
