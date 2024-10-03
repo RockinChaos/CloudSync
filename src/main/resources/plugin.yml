@@ -1,0 +1,8 @@
+main: me.RockinChaos.cloudsync.bukkit.CloudSync
+version: ${project.version}-b${build.version}
+name: CloudSync
+author: RockinChaos
+api-version: 1.13
+folia-supported: true
+description: A spigot-bungee handshake.
+website: https://www.spigotmc.org/resources/cloudsync.93382/

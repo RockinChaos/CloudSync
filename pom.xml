@@ -15,6 +15,7 @@
 	<properties>
 		<bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
 		<velocity.version>3.3.0-SNAPSHOT</velocity.version>
+		<spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
 
 		<build.version>${env.BUILD_NUMBER}</build.version>
 
@@ -96,11 +97,11 @@
 	</build>
 	
 	<repositories>
-		<!--Bungee Repository-->
-        <repository>
-            <id>bungeecord-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
+		<!--Spigot / Bungee Repository-->
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
 		<!--Velocity Repository-->
         <repository>
             <id>velocity</id>
@@ -128,6 +129,13 @@
             <version>${velocity.version}</version>
             <scope>provided</scope>
         </dependency>
+		<!--Spigot API-->
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>${spigot.version}</version>
+			<scope>provided</scope>
+		</dependency>
 		<!--bStats API-->
         <dependency>
             <groupId>org.bstats</groupId>
