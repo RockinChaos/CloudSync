@@ -104,9 +104,15 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+        <!--Velocity-API Repository-->
         <repository>
-            <id>velocity-repo</id>
+            <id>velocity-api-repo</id>
             <url>https://repo.velocitypowered.com/snapshots/</url>
+        </repository>
+        <!--Velocity-Proxy Repository-->
+        <repository>
+            <id>velocity-proxy-repo</id>
+            <url>https://nexus.funkemunky.cc/content/repositories/releases/</url>
         </repository>
         <!--bStats Repository-->
         <repository>
