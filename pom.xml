@@ -105,7 +105,7 @@
         <!--Bungee / Velocity Repository-->
         <repository>
             <id>CraftationGaming-chaos</id>
-            <url>https://repo.craftationgaming.com/chaos</url>
+            <url>https://repo.craftationgaming.com/other</url>
         </repository>
         <!--bStats Repository-->
         <repository>
