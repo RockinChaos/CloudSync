@@ -4,3 +4,38 @@ name: CloudSync
 author: RockinChaos
 description: A spigot-bungee handshake.
 website: https://www.spigotmc.org/resources/cloudsync.93382/
+
+permissions:
+  cloudsync.*:
+    description: Grants access to all aspects of the plugin, including every permission node.
+    default: false
+    children:
+      cloudsync.all: true
+  cloudsync.all:
+    description: Grants access to all aspects of the plugin, including every permission node.
+    default: false
+    children:
+      cloudsync.use: true
+      cloudsync.reload: true
+      cloudsync.updates: true
+      cloudsync.upgrade: true
+  cloudsync.use:
+    description: Grants access to basic plugin commands.
+    default: true
+  cloudsync.reload:
+    description: Grants access to the reload command.
+    default: false
+  cloudsync.updates:
+    description: Grants access to the updates command.
+    default: false
+  cloudsync.upgrade:
+    description: Grants access to the upgrade command.
+    default: false
+
+commands:
+  cloudsync:
+    description: Displays a menu giving credit to the author and the help menu command.
+    aliases: [ cs ]
+    usage: |
+      /cloudsync
+      Example: /cs
