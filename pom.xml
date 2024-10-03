@@ -13,10 +13,12 @@
     <version>1.0.2-SNAPSHOT</version>
 
     <properties>
-        <bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
-        <velocity.version>3.3.0-SNAPSHOT</velocity.version>
         <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
 
+        <!--Specific to CraftationGaming Repository, Do not change!-->
+        <bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
+        <velocity.version>3.3.0-SNAPSHOT</velocity.version>
+        
         <build.version>${env.BUILD_NUMBER}</build.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
