@@ -22,7 +22,7 @@ you will need this plugin installed onto your BungeeCord server.
 3) Delete any found duplicate instances or there will be conflicting errors in the console window.
 4) Once this is completed, the server must be restarted to register and enable the plugin.
 5) Realize this is a Proxy Plugin and not a Bukkit/Spigot plugin, starting again from step 1.
-5) From this point, it is up to you to configure the plugin or join the discord for additional help.
+6) From this point, it is up to you to configure the plugin or join the discord for additional help.
 ```
 
 ### Developer Notes
@@ -34,8 +34,8 @@ Required Libraries when compiling (there are no required dependencies, only soft
 * BungeeCord (Parent) (Latest Official)
 * Velocity (Parent) (Latest Official)
 * Bukkit/Spigot (Latest Official)
-* SnakeYaml (v2.3)
-* JSON Simple (v1.1.1)
+* SnakeYaml (v2.3) - Must be Shaded!
+* JSON Simple (v1.1.1) - Must be Shaded!
 ```
 
 ![](https://i.imgur.com/vFllc29.png)![](https://i.imgur.com/vFllc29.png)[<img src="https://i.imgur.com/WR5dVKN.png">](https://discord.gg/D5FnJ7C)[<img src="https://i.imgur.com/LJsmwSd.png">](http://ci.craftationgaming.com/)

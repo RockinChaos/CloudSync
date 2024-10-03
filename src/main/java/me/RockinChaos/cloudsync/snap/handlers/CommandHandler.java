@@ -64,7 +64,7 @@ public class CommandHandler {
     }
 
     /**
-     * Called when the Sender executes a command.
+     * Attempts to match the command arguments with an applicable Executor.
      *
      * @param args Passed command arguments.
      * @return The found Executor.
