@@ -1,0 +1,51 @@
+name: Assistance Request
+description: Ask a question or seek help with this resource.
+labels: ["Question"]
+assignees: RockinChaos
+body:
+  - type: input
+    attributes:
+      label: Server Version
+      description: Version and type of server software where the resource is installed.
+      placeholder: BungeeCord 1.21.0
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Resource Version
+      description: Full version in numbers, "latest" is not a version.
+      placeholder: CloudSync v1.0.1-b7-RELEASE
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Describe The Problem
+      description: A clear and concise description of the problem.
+      placeholder: I need help configuring updating checking.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Any other context or screenshots (highly recommended) about this request.
+    validations:
+      required: false
+
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Let's make sure this report is valid.
+      options:
+        - label: I am running latest version of this resource.
+          required: true
+        - label: I have read the wiki to make sure it's not an issue with configuration.
+          required: true
+        - label: I ticked all of these boxes without actually reading them.
+          required: false
+        - label: I have checked that my help request is unique and another request does not exist.
+          required: true
+        - label: I acknowledge this is not a bug report and is instead a help request.
+          required: true

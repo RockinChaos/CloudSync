@@ -1,4 +1,4 @@
-# Contributing to ItemJoin-Bungee
+# Contributing to CloudSync
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug
@@ -22,8 +22,8 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 ## Any contributions you make will be under the GNU Lesser General Public License v3.0
 In short, when you submit code changes, your submissions are understood to be under the same [GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/RockinChaos/ItemJoin-Bungee/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/RockinChaos/ItemJoin-Bungee/issues/new/choose); it's that easy!
+## Report bugs using Github's [issues](https://github.com/RockinChaos/CloudSync/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/RockinChaos/ItemJoin/issues/new/choose); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
