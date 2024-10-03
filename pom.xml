@@ -15,7 +15,8 @@
     <properties>
         <bungee.api.version>1.21-R0.1-SNAPSHOT</bungee.api.version>
         <bungee.proxy.version>1.4.7-SNAPSHOT</bungee.proxy.version>
-        <velocity.version>3.3.0-SNAPSHOT</velocity.version>
+        <velocity.api.version>3.3.0-SNAPSHOT</velocity.api.version>
+        <velocity.proxy.version>3.0.1</velocity.proxy.version>
         <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
 
         <build.version>${env.BUILD_NUMBER}</build.version>
@@ -132,13 +133,13 @@
         <dependency>
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-api</artifactId>
-            <version>${velocity.version}</version>
+            <version>${velocity.api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-proxy</artifactId>
-            <version>${velocity.version}</version>
+            <version>${velocity.proxy.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--Spigot API-->
@@ -153,6 +154,13 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bungeecord</artifactId>
             <version>2.2.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Netty API-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.65.Final</version>
             <scope>provided</scope>
         </dependency>
         <!--JSON API-->
