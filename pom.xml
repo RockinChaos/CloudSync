@@ -13,10 +13,8 @@
     <version>1.0.2-SNAPSHOT</version>
 
     <properties>
-        <bungee.api.version>1.21-R0.1-SNAPSHOT</bungee.api.version>
-        <bungee.proxy.version>1.4.7-SNAPSHOT</bungee.proxy.version>
-        <velocity.api.version>3.3.0-SNAPSHOT</velocity.api.version>
-        <velocity.proxy.version>3.0.1</velocity.proxy.version>
+        <bungee.version>1.21-R0.1-SNAPSHOT</bungee.version>
+        <velocity.version>3.3.0-SNAPSHOT</velocity.version>
         <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
 
         <build.version>${env.BUILD_NUMBER}</build.version>
@@ -104,20 +102,10 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-        <!--Bungee Repository-->
+        <!--Bungee / Velocity Repository-->
         <repository>
-            <id>bungeecord-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-        <!--Velocity-API Repository-->
-        <repository>
-            <id>velocity-api-repo</id>
-            <url>https://repo.velocitypowered.com/snapshots/</url>
-        </repository>
-        <!--Velocity-Proxy Repository-->
-        <repository>
-            <id>velocity-proxy-repo</id>
-            <url>https://nexus.funkemunky.cc/content/repositories/releases/</url>
+            <id>CraftationGaming-chaos</id>
+            <url>https://repo.craftationgaming.com/chaos</url>
         </repository>
         <!--bStats Repository-->
         <repository>
@@ -131,26 +119,14 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-parent</artifactId>
-            <version>${bungee.api.version}</version>
+            <version>${bungee.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-proxy</artifactId>
-            <version>${bungee.proxy.version}</version>
-            <scope>provided</scope>
-        </dependency>-->
         <!--Velocity API-->
         <dependency>
             <groupId>com.velocitypowered</groupId>
-            <artifactId>velocity-api</artifactId>
-            <version>${velocity.api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.velocitypowered</groupId>
-            <artifactId>velocity-proxy</artifactId>
-            <version>${velocity.proxy.version}</version>
+            <artifactId>velocity-parent</artifactId>
+            <version>${velocity.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--Spigot API-->
