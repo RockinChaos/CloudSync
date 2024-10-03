@@ -169,13 +169,6 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
             <scope>compile</scope>
-        </dependency>
-        <!--Yaml API-->
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>2.3</version>
-            <scope>compile</scope>
             <exclusions>
                 <exclusion>
                     <groupId>junit</groupId>
@@ -186,6 +179,13 @@
                     <artifactId>hamcrest-core</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!--Yaml API-->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.3</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
