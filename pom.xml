@@ -109,7 +109,7 @@
 		</repository>
 		<!--Velocity Repository-->
         <repository>
-            <id>velocity-repo</id>
+            <id>velocity</id>
             <url>https://repo.velocitypowered.com/snapshots/</url>
         </repository>
 		<!--bStats Repository-->
