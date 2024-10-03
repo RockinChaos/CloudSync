@@ -99,10 +99,15 @@
     </build>
 
     <repositories>
-        <!--Spigot / Bungee Repository-->
+        <!--Spigot Repository-->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <!--Bungee Repository-->
+        <repository>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
         <!--Velocity-API Repository-->
         <repository>
