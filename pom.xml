@@ -130,16 +130,16 @@
         <!--Bungee API-->
         <dependency>
             <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-api</artifactId>
+            <artifactId>bungeecord-parent</artifactId>
             <version>${bungee.api.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-proxy</artifactId>
             <version>${bungee.proxy.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
         <!--Velocity API-->
         <dependency>
             <groupId>com.velocitypowered</groupId>
