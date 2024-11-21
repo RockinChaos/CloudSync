@@ -41,6 +41,10 @@ public class Messages {
     @Subscribe
     public void onPluginMessage(final PluginMessageEvent event) {
         if (event.getIdentifier().getId().equalsIgnoreCase(CloudSync.getPluginChannel().getId())) {
+            if (event.getTarget() instanceof ServerConnection) {
+                event.setResult(PluginMessageEvent.ForwardResult.handled());
+                return;
+            }
             final DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
                 final String identifier = stream.readUTF();

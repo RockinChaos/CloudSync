@@ -22,6 +22,7 @@ import com.google.common.io.ByteStreams;
 import me.RockinChaos.cloudsync.bungee.CloudSync;
 import me.RockinChaos.cloudsync.snap.Snap;
 import me.RockinChaos.cloudsync.snap.utils.ServerUtils;
+import net.md_5.bungee.ServerConnection;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PluginMessageEvent;
@@ -43,6 +44,10 @@ public class Messages implements Listener {
     @EventHandler()
     public void onPluginMessage(final PluginMessageEvent event) {
         if (event.getTag().equalsIgnoreCase(CloudSync.getPluginChannel())) {
+            if (event.getReceiver() instanceof ServerConnection) {
+                event.setCancelled(true);
+                return;
+            }
             final DataInputStream stream = new DataInputStream(new ByteArrayInputStream(event.getData()));
             try {
                 final String identifier = stream.readUTF();
