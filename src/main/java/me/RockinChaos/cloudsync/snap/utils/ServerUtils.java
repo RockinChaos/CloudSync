@@ -149,10 +149,10 @@ public class ServerUtils {
                 ((CoreLogger) sender).info(message.replaceAll("&[0-9a-fk-or]", ""));
                 break;
             case "Logger":
-                ((Logger) sender).info(ChatColor.stripColor((Snap.getSnap().isBungee() ? prefixMessage : message).replaceAll("&[0-9a-fk-or]", "")));
+                ((Logger) sender).info(Snap.getSnap().isBungee() ? ChatColor.stripColor(prefixMessage.replaceAll("&[0-9a-fk-or]", "")) : message.replaceAll("&[0-9a-fk-or]", ""));
                 break;
             default:
-                Snap.getSnap().getLogger().info(ChatColor.stripColor((Snap.getSnap().isBungee() ? prefixMessage : message).replaceAll("&[0-9a-fk-or]", "")));
+                Snap.getSnap().getLogger().info(Snap.getSnap().isBungee() ? ChatColor.stripColor(prefixMessage.replaceAll("&[0-9a-fk-or]", "")) : message.replaceAll("&[0-9a-fk-or]", ""));
                 break;
         }
     }
